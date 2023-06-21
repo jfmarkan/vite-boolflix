@@ -17,14 +17,15 @@ export default {
     data(){
         return {
         moviesList:[],
-        apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=2c045d83106f88e7c47425fc16ecf05d',
+        apiUrl: 'https://api.themoviedb.org/3/search/movie',
         }
     },
     methods: {
         searchMovies(needle = ''){
             axios.get(this.apiUrl, {
                     params: {
-                        query: needle
+                        api_key: '2c045d83106f88e7c47425fc16ecf05d',
+                        query: needle,
                     }
                 })
                 .then( (response) => {

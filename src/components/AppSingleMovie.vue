@@ -9,7 +9,7 @@
             {{ otitle }}
             </p>    
             <p class="card-text">
-                {{ language }}<img src="https://www.countryflagicons.com/FLAT/24/DE.png" alt="">
+                <img :src="`https://countryflagicons.com/FLAT/24/${language.toUpperCase()}.png`" alt="Flag">
             </p>
             <p class="card-text">
                 {{ vote }}
@@ -26,16 +26,23 @@ export default {
     name: 'AppSingleMovie',
     data(){
         return{
-
+            
         }
     },
     props:{
-        title:String,
-        otitle:String,
-        language:String,
-        vote:Number,
+        title: String,
+        otitle: String,
+        language: String,
+        vote: Number,
     },
-}
+    methods:{
+        getflagImage(language) {
+            const commonUrl = 'https://www.countryflagicons.com/FLAT/24/';
+            const imgExt = '.png';
+            return commonUrl + language.toUpperCase() + imgExt;
+        },
+    },
+};
 </script>
 
 <style lang="">
