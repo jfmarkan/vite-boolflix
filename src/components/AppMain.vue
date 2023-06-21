@@ -1,12 +1,20 @@
 <template>
-    <div>
-        <h1>MAIN</h1>
+    <div class="">
+        <AppMoviesList :moviesList="moviesList"/>
     </div>
 </template>
 
 <script>
+import AppMoviesList from './AppMoviesList.vue';
+
 export default {
     name: 'AppMain',
+    components:{
+        AppMoviesList,
+    },
+    props:{
+        moviesList:Array,
+    }
 }
 </script>
 

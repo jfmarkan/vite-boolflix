@@ -1,21 +1,19 @@
 <template>
-  <AppHeader />
-  <AppMain />
+  <AppContainer />
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
+import AppContainer from './components/AppContainer.vue';
+
 
 export default {
   name: 'App',
   components:{
-    AppHeader,
-    AppMain
+    AppContainer
   }
 }
 </script>
 
-<style lang="">
-  
+<style lang="scss">
+@import "../node_modules/bootstrap/scss/bootstrap";
 </style>
