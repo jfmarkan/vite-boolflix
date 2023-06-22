@@ -1,10 +1,11 @@
 <template>
     <div>
-        <AppSingleMovie v-for="movie in moviesList"
-            :title="movie.title"
-            :otitle="movie.original_title"
-            :language="movie.original_language"
-            :vote="movie.vote_average"
+        <AppSingleMovie v-for="result in searchResult"
+            :title="result.title"
+            :otitle="result.original_title"
+            :language="result.original_language"
+            :vote="result.vote_average"
+            :img="result.backdrop_path"
         />
     </div>
 </template>
@@ -15,7 +16,7 @@ import AppSingleMovie from './AppSingleMovie.vue';
 export default {
     name: "AppMoviesList",
     props:{
-        moviesList:Array,
+        searchResult:Array,
     },
     components: { 
         AppSingleMovie 

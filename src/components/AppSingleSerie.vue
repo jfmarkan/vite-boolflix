@@ -9,7 +9,7 @@
             {{ otitle }}
             </p>    
             <p class="card-text">
-                <img :src="`https://countryflagicons.com/FLAT/24/${language.toUpperCase()}.png`" :alt="`${language.toUpperCase()}`">
+                <img :src="`https://countryflagicons.com/FLAT/24/${language.toUpperCase()}.png`" :alt="`${language}`">
             </p>
             <p class="card-text">
                 {{ vote }}
@@ -23,7 +23,7 @@
 
 
 export default {
-    name: 'AppSingleMovie',
+    name: 'AppSingleSerie',
     data(){
         return{
             
@@ -34,14 +34,12 @@ export default {
         otitle: String,
         language: String,
         vote: Number,
-        img: String,
     },
     methods:{
-        getImagePath: function(img) {
-            const commonUrl = 'https://image.tmdb.org/t/p/';
-            const imgWidth = 'w300';
-            let img = img
-            return commonUrl + imgWidth + img;
+        getflagImage(language) {
+            const commonUrl = 'https://www.countryflagicons.com/FLAT/24/';
+            const imgExt = '.png';
+            return commonUrl + language.toUpperCase() + imgExt;
         },
     },
 };

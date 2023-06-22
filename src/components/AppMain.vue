@@ -1,19 +1,21 @@
 <template>
     <div class="">
-        <AppMoviesList :moviesList="moviesList"/>
+        <AppMoviesList :searchResult="searchResult"/>
     </div>
 </template>
 
 <script>
 import AppMoviesList from './AppMoviesList.vue';
 
+
 export default {
     name: 'AppMain',
     components:{
         AppMoviesList,
+        AppSeriesList
     },
     props:{
-        moviesList:Array,
+        searchResult:Array,
     }
 }
 </script>

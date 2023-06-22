@@ -1,6 +1,6 @@
 <template>
-    <AppHeader @searched="searchMovies" />
-    <AppMain :moviesList="moviesList"/>
+    <AppHeader @searched="searchAny" />
+    <AppMain :moviesList="moviesList" :seriesList="seriesList"/>
 </template>
 
 <script>
@@ -12,34 +12,49 @@ export default {
     name: 'AppContainer',
     components:{
         AppHeader,
-        AppMain
+        AppMain,
     },
     data(){
         return {
+        searchResult:[],
         moviesList:[],
-        apiUrl: 'https://api.themoviedb.org/3/search/movie',
+        seriesList:[],
+        movieApiUrl: 'https://api.themoviedb.org/3/search/movie',
+        serieApiUrl: 'https://api.themoviedb.org/3/search/tv',
         }
     },
     methods: {
-        searchMovies(needle = ''){
-            axios.get(this.apiUrl, {
+        searchAny(search = ''){
+            axios.get(this.movieApiUrl, {
+                params: {
+                    api_key: '2c045d83106f88e7c47425fc16ecf05d',
+                    query: search,
+                }
+            })
+            .then( (response) => {
+                this.searchResult = response.data.results;
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            axios.get(this.serieApiUrl, {
                     params: {
                         api_key: '2c045d83106f88e7c47425fc16ecf05d',
-                        query: needle,
+                        query: search,
                     }
                 })
                 .then( (response) => {
-                    this.moviesList = response.data.results;
+                    this.searchResult = response.data.results;
                     console.log(response);
-                    console.log
                 })
                 .catch(function (error) {
                     console.log(error);
                 })
-        }
+        },
     },
     created(){
-        this.searchMovies();
+        this.searchAny();
     },
 }
 </script>
