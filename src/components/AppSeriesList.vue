@@ -5,6 +5,7 @@
             :otitle="serie.original_name"
             :language="serie.original_language"
             :vote="serie.vote_average"
+            :img="serie.backdrop_path"
         />
     </div>
 </template>

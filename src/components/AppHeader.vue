@@ -13,8 +13,6 @@
 </template>
 
 <script>
-
-
 export default {
     name: 'AppHeader',
     data() {
@@ -26,7 +24,6 @@ export default {
 
     },
 }
-
 </script>
 
 <style lang="">

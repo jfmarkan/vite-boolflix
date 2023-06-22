@@ -7,12 +7,15 @@
             </h5>
             <p class="card-text">
             {{ otitle }}
-            </p>    
+            </p>
+            <p class="card-text">
+                <img :src="`https://image.tmdb.org/t/p/w342/${img}`" :alt="`${title}` + ' picture'">
+            </p>     
             <p class="card-text">
                 <img :src="`https://countryflagicons.com/FLAT/24/${language.toUpperCase()}.png`" :alt="`${language}`">
             </p>
             <p class="card-text">
-                {{ vote }}
+                {{ convertedVote }}
             </p>
         </div>
     </article>
@@ -26,7 +29,7 @@ export default {
     name: 'AppSingleSerie',
     data(){
         return{
-            
+            convertedVote:0,
         }
     },
     props:{
@@ -34,14 +37,16 @@ export default {
         otitle: String,
         language: String,
         vote: Number,
+        img: String,
     },
     methods:{
-        getflagImage(language) {
-            const commonUrl = 'https://www.countryflagicons.com/FLAT/24/';
-            const imgExt = '.png';
-            return commonUrl + language.toUpperCase() + imgExt;
-        },
+        convertVote(number){
+            return Math.ceil(number/2);
+        }
     },
+    mounted() {
+        this.convertedVote = this.convertVote(this.vote)
+    }
 };
 </script>
 

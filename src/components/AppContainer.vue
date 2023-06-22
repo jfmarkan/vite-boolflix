@@ -16,7 +16,6 @@ export default {
     },
     data(){
         return {
-        searchResult:[],
         moviesList:[],
         seriesList:[],
         movieApiUrl: 'https://api.themoviedb.org/3/search/movie',
@@ -32,7 +31,7 @@ export default {
                 }
             })
             .then( (response) => {
-                this.searchResult = response.data.results;
+                this.moviesList = response.data.results;
                 console.log(response);
             })
             .catch(function (error) {
@@ -45,7 +44,7 @@ export default {
                     }
                 })
                 .then( (response) => {
-                    this.searchResult = response.data.results;
+                    this.seriesList = response.data.results;
                     console.log(response);
                 })
                 .catch(function (error) {
