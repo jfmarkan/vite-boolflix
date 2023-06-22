@@ -1,8 +1,8 @@
 <template>
-    <div class="">
+    <main>
         <AppMoviesList :moviesList="moviesList"/>
         <AppSeriesList :seriesList="seriesList" />
-    </div>
+    </main>
 </template>
 
 <script>
@@ -23,6 +23,8 @@ export default {
 }
 </script>
 
-<style lang="">
-    
+<style lang="scss">
+    main{
+        background-color: #1b1b1b;
+    }
 </style>

@@ -1,25 +1,22 @@
 <template>
-    <div>
-        <article class="card mb-5 col-2 me-3 p-0">
-                <div class="card-body text-center">
-            <h5 class="card-title fw-bold">
-                {{ title }}
-            </h5>
-            <p class="card-text">
-            {{ otitle }}
-            </p>
-            <p class="card-text">
-                <img :src="`https://image.tmdb.org/t/p/w342/${img}`" :alt="`${title}` + ' picture'">
-            </p>     
-            <p class="card-text">
-                <img :src="`https://countryflagicons.com/FLAT/24/${language.toUpperCase()}.png`" :alt="`${language}`">
-            </p>
-            <p class="card-text">
-                {{ convertedVote }}
-            </p>
+    <article class="mb-3 col-2 me-1 p-0">
+        <div class="flip">
+            <div class="front">
+                <img :src="`https://image.tmdb.org/t/p/w342/${poster}`" :alt="`${title}` + ' picture'">
+            </div>
+            <div class="back p-2">
+                <span>Title:</span>
+                <h4> {{ title }}</h4>
+                <span>Overview: </span>
+                <p>{{overview}}</p>
+                <span class="me-1">Language:</span>
+                <img :src="`https://countryflagicons.com/FLAT/24/${language.toUpperCase()}.png`" :alt="`${language.toUpperCase()}`">
+                <br>
+                <span>Ranking: </span>
+                <p>{{convertedVote}}</p>
+            </div>
         </div>
     </article>
-    </div>
 </template>
 
 <script>
@@ -38,6 +35,8 @@ export default {
         language: String,
         vote: Number,
         img: String,
+        overview:String,
+        poster:String,
     },
     methods:{
         convertVote(number){
