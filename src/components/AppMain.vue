@@ -1,7 +1,7 @@
 <template>
     <main>
-        <AppMoviesList :moviesList="moviesList"/>
-        <AppSeriesList :seriesList="seriesList" />
+        <AppMoviesList :moviesList="moviesList" :class="moviesList.length === 0 ? 'd-none' : 'd-block'"/>
+        <AppSeriesList :seriesList="seriesList" :class="moviesList.length === 0 ? 'd-none' : 'd-block'"/>
     </main>
 </template>
 
